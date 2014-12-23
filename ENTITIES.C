@@ -899,6 +899,11 @@ void LoadEntities (void)
 			else if (!strcmp (key, "_sunlight2") && SunLight[1] == -1)
 			{
 				SunLight[1] = atof (com_token);
+				if (FakeGISunlight2)
+				{
+					printf("GI Light level: %f, NoOfHSuns: %d, NoOfVSuns: %d\n", SunLight[1], NOOFHSUNS_GI, NOOFVSUNS_GI);
+					SunLight[1] = SunLight[1] / (float)(NOOFHSUNS_GI * NOOFVSUNS_GI);
+				}
 				AllEnts.SunLight2 = SunLight[1] > 0;
 			}
 			else if (!strcmp (key, "_sunlight3") && SunLight[1] == -1)
