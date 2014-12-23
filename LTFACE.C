@@ -938,7 +938,7 @@ void SingleLightFace (entity_t *light, lightinfo_t *l)
 SkyLightFace
 =============
 */
-void SkyLightFace (entity_t *light, lightinfo_t *l, int SunLight, float *sunLightColor, vec3_t SunMangle, qboolean SkyMinLight)
+void SkyLightFace (entity_t *light, lightinfo_t *l, float SunLight, float *sunLightColor, vec3_t SunMangle, qboolean SkyMinLight)
 {
 	int    i, j;
 	vec_t  *surf;

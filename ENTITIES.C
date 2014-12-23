@@ -664,7 +664,8 @@ void LoadEntities (void)
 	char	 key[MAX_KEY], Str[100 + MAX_KEY];
 	epair_t	 *epair, *prev;
 	double	 vec[4];
-	int	 i, Val, NoOfVals, Sun;
+	int	 i, /*Val,*/ NoOfVals, Sun;
+	float Val;
 	qboolean ForceMin, OldFormat;
 	float ScaleCalibration = -666;
 
@@ -783,7 +784,7 @@ void LoadEntities (void)
 			else if (!strncmp (key, "light", 5) || !strcmp (key, "_light"))
 			{
 				ThisEnt.Compressed = false;
-				Val = atoi (com_token);
+				Val = atof (com_token);
 
 				// Check for multiple light values
 				if (entity->light != 0 && entity->light != Val)
@@ -892,17 +893,17 @@ void LoadEntities (void)
 			// CSL
 			else if (!strcmp (key, "_sunlight") && SunLight[0] == -1)
 			{
-				SunLight[0] = atoi (com_token);
+				SunLight[0] = atof (com_token);
 				AllEnts.SunLight = ThisEnt.Sun = SunLight[0] > 0;
 			}
 			else if (!strcmp (key, "_sunlight2") && SunLight[1] == -1)
 			{
-				SunLight[1] = atoi (com_token);
+				SunLight[1] = atof (com_token);
 				AllEnts.SunLight2 = SunLight[1] > 0;
 			}
 			else if (!strcmp (key, "_sunlight3") && SunLight[1] == -1)
 			{
-				SunLight[1] = atoi (com_token);
+				SunLight[1] = atof (com_token);
 				AllEnts.SunLight2 = SunLight[1] > 0;
 
 				if (ShadowSense == -1)
